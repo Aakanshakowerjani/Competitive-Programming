@@ -1,0 +1,68 @@
+
+"""
+a=input()
+s=set(a)
+l=[]
+for i in s:
+    c=a.count(i)
+    x="'"+i+"'"+":"+str(c)+","
+    l.append(x)
+print("{",end="")
+for i in l:
+    print(i,end="")
+print("}",end="")
+"""
+
+###Score Question
+"""
+t=int(input())
+ans=[]
+while(t):
+    t-=1
+    n=int(input())
+    l1=[0,0,0,0,0,0,0,0]
+    for i in range(n):
+        l=list(map(int,input().split()))
+        if l[0]<=8:
+            if l1[l[0]-1]<l[1]:
+                l1[l[0]-1]=l[1]
+    ans.append(sum(l1))
+for i in ans:
+    print(i)
+"""
+
+
+###Plus Multiply
+"""
+def f(n):
+    fact = 1
+    for i in range(1, n + 1):
+        fact = fact * i
+    return fact
+def nCr(n,r):
+    return int(f(n) / (f(r) * f(n-r)))
+"""
+def func(n):
+    s=0
+    if n==1:
+        return 0
+    else:
+        for i in range(1,n):
+            s+=i
+        return s
+t=int(input())
+while(t):
+    t-=1
+    n=int(input())
+    l=list(map(int,input().split()))
+    s1=l.count(0)
+    s2=l.count(2)
+    if s1 != 0:
+        x=(s1-1)*(s1-1)-func(s1-1)
+    else:
+        x=0
+    if s2 != 0:
+        y=(s2-1)*(s2-1)-func(s2-1)
+    else:
+        y=0
+    print(x+y)
